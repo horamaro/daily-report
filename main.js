@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
+import { fetchHistoryData} from "./my-modules/fetchHistoryData";
+
 
 // 設定条件
 const firebaseConfig = {
@@ -18,23 +20,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 //cloud firestoreから取得したデータを表示する
-const fetchHistoryData = async () => {
-  let tags = "";
-
-  //reportsコレクションからデータを取得
-  const querySnapshot = await getDocs(collection(db, "reports"));
-
-  //データをテーブル表の形式に合わせてHTMLに挿入
-  querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${doc.data()}`);
-    tags += `<tr><td>${doc.data().date}</td><td>${doc.data().name}</td><td>${doc.data().work}</td><td>${doc.data().comment}</td></tr>`
-    });
-    document.getElementById("js-history").innerHTML = tags;
-  };
-
-  //Cloud Firestoreから取得したデータを表示する
   if (document.getElementById("js-history")) {
-    fetchHistoryData();
+    fetchHistoryData(getDocs, collection. db);
   }
 
 // Cloud Firestoreにデータを送信する
