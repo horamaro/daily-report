@@ -21,7 +21,7 @@ const db = getFirestore(app);
 
 //cloud firestoreから取得したデータを表示する
   if (document.getElementById("js-history")) {
-    fetchHistoryData(getDocs, collection. db);
+    fetchHistoryData(getDocs, collection, db);
   }
 
 // Cloud Firestoreにデータを送信する
