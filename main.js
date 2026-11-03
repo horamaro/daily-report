@@ -6,12 +6,12 @@ import { submitData} from "./my-modules/submit-data";
 
 // 設定条件
 const firebaseConfig = {
-  apiKey: "AIzaSyBHrNKqS2UWMcPuot6EeoIx3DLnUdrbNXs",
-  authDomain: "dairy-report-b3c21.firebaseapp.com",
-  projectId: "dairy-report-b3c21",
-  storageBucket: "dairy-report-b3c21.firebasestorage.app",
-  messagingSenderId: "928947499657",
-  appId: "1:928947499657:web:b9315fed24b23bd4674c58"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID
 };
 
 // Initialize Firebase
